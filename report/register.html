@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 등록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="process_registration.php" method="post">
+        <h2>취업 정보 계정 만들기</h2>
+
+        <h3>기본 정보</h3>
+        <label for="name">이름*</label>
+        <input type="text" id="name" name="name" size="8" required>
+
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" size="15" placeholder="id@domain_name" required>
+
+        <label for="password">암호:</label>
+        <input type="password" id="password" name="password" size="12" required>
+
+        <label for="confirm_password">암호 확인:</label>
+        <input type="password" id="confirm_password" name="confirm_password" size="12" required>
+
+        <label for="mobile">모바일 폰:</label>
+        <input type="tel" id="mobile" name="mobile" size="13" placeholder="010-1234-5678" required>
+
+        <label for="website">개인 홈페이지:</label>
+        <input type="text" id="website" name="website" size="30" placeholder="http://www.example.com">
+
+        <label for="address">주소:</label>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+
+        <h3>학력</h3>
+        <label for="school">학교명:</label>
+        <input type="text" id="school" name="school" size="12" required>
+
+        <label for="major">전공:</label>
+        <input type="text" id="major" name="major" size="12" required>
+
+        <label for="graduation">졸업 여부:</label>
+        <select id="graduation" name="graduation">
+            <option value="">---선택---</option>
+            <option value="expected">졸업예정</option>
+            <option value="graduated">졸업</option>
+        </select>
+
+        <label for="graduation_date">졸업(예정)일:</label>
+        <input type="date" id="graduation_date" name="graduation_date">
+
+        <h3>업무 경력</h3>
+        <label for="work_company">근무업체명:</label>
+        <input type="text" id="work_company" name="work_company" size="20" required>
+
+        <label for="position">직위:</label>
+        <input type="text" id="position" name="position" size="10" required>
+
+        <label for="responsibilities">담당 업무:</label>
+        <textarea id="responsibilities" name="responsibilities" rows="10" cols="80" required></textarea>
+
+        <label for="work_experience">근무 년수:</label>
+        <input type="number" id="work_experience" name="work_experience" min="0" max="10" step="0.5">
+
+        <h3>자기소개서</h3>
+        <label for="attachment">첨부 파일:</label>
+        <input type="file" id="attachment" name="attachment">
+
+        <input type="submit" value="제출">
+        <input type="reset" value="재작성">
+    </form>
+
+</body>
+</html>
