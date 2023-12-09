@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 프로그래밍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bindle.min.js"></script>
+</head>
+<body>
+<div class="container fluid my-3 p-3">
+    <h1>2진수 변환기</h1>
+        <div class="col-md-6 mb-3 border-bottom">
+            <label for="binaryInput" class="text-primary">2진수:</label>
+            <input type="text" id="binaryInput">
+            <button type="button" class="btn btn-dark" id="convertButton">===&gt;</button>
+            <label for="hexOutput" class="text-primary">16진수:</label>
+            <input type="text" id="hexOutput" readonly>
+        </div>
+</div>
+<div class="container fluid my-3 p-2">
+    <h1>파스칼 삼각형</h1>
+        <div class="col-md-6">
+            <label for="triangleHeight" class="text-primary">삼각형 높이</label>
+            <input type="number" id="triangleHeight">
+            <button type="button" class="btn btn-success" id="drawButton">그리기</button>
+            <div id="pascalsTriangle"></div>
+        </div>
+
+</div>
+
+
+    <script>
+        function convertToHex() {
+            const binaryInput = document.getElementById('binaryInput').value;
+
+            const decimalValue = parseInt(binaryInput, 2);
+
+            const hexValue = decimalValue.toString(16).toUpperCase();
+
+            document.getElementById('hexOutput').value = hexValue;
+        }
+
+        function drawPascalsTriangle() {
+            const height = parseInt(document.getElementById('triangleHeight').value);
+
+            let triangle = '';
+            for (let i = 0; i < height; i++) {
+                let num = 1;
+                for (let j = 0; j <= i; j++) {
+                    triangle += num + ' ';
+                    num = num * (i - j) / (j + 1);
+                }
+                triangle += '<br>';
+            }
+
+
+            document.getElementById('pascalsTriangle').innerHTML = triangle;
+        }
+
+        document.getElementById('convertButton').addEventListener('click', convertToHex);
+        document.getElementById('drawButton').addEventListener('click', drawPascalsTriangle);
+    </script>
+
+</body>
+</html>
